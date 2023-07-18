@@ -29,7 +29,7 @@ resource "vsphere_virtual_machine" "vmFromLocalOvf" {
   datacenter_id        = data.vsphere_datacenter.datacenter.id
   datastore_id         = data.vsphere_datastore.datastore.id
   host_system_id       = data.vsphere_host.host.id
-  resource_pool_id     = data.vsphere_resource_pool.default.id
+  #resource_pool_id     = data.vsphere_resource_pool.default.id
 
   wait_for_guest_net_timeout = 0
   wait_for_guest_ip_timeout  = 0
@@ -41,8 +41,8 @@ resource "vsphere_virtual_machine" "vmFromLocalOvf" {
     ip_protocol               = "IPV4"
     ip_allocation_policy      = "STATIC_MANUAL"
     ovf_network_map = {
-      "Network 1" = data.vsphere_network.network.id
-      "Network 2" = data.vsphere_network.network.id
+      "Network 1" = data.vsphere_network.mgmt_network.id
+      "Network 2" = data.vsphere_network.data_network.id
     }
   }
   vapp {
