@@ -17,6 +17,7 @@ variable "esxi_password" {
     sensitive   = true
 }
 variable "esxi_vsphere_server" {}
+variable "vsphere_host" {}
 
 # You must add template in vsphere before use it
 variable "template_image" {

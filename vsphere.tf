@@ -8,7 +8,7 @@ data "vsphere_datastore" "datastore" {
 }
 
 data "vsphere_host" "host" {
-  name          = "localhost.localdomain"
+  name          = var.vsphere_host
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
