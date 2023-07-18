@@ -22,8 +22,13 @@ data "vsphere_network" "data_network" {
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
-data "vsphere_resource_pool" "pool" {
-  name          = "localhost.localdomain/Resources"
+# data "vsphere_resource_pool" "pool" {
+#   name          = "localhost.localdomain/Resources"
+#   datacenter_id = data.vsphere_datacenter.datacenter.id
+# }
+
+data "vsphere_resource_pool" "default" {
+  name          = format("%s%s", data.vsphere_compute_cluster.cluster.name, "/Resources")
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
