@@ -46,7 +46,7 @@ resource "vsphere_virtual_machine" "vmFromLocalOvf" {
 
   ovf_deploy {
     allow_unverified_ssl_cert = false
-    local_ovf_path            = "../../BIG-IQ-8.2.0.1-0.0.97-mod.vmware.ova"
+    local_ovf_path            = "../../BIG-IQ-8.2.0.1-0.0.97.vmware.ova"
     disk_provisioning         = "thin"
     ip_protocol               = "IPV4"
     ip_allocation_policy      = "STATIC_MANUAL"
