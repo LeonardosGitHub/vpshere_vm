@@ -2,15 +2,19 @@
 # You can use vcenter login params or simply host esxi login params
 provider "vsphere" {
   # If you use a domain set your login like this "MyDomain\\MyUser"
-  user           = ""
-  password       = ""
-  vsphere_server = ""
+  user           = var.esxi_user
+  password       = var.esxi_password
+  vsphere_server = var.esxi_vsphere_server
 
   # if you have a self-signed cert
   allow_unverified_ssl = true
 }
 
 #### TEMPLATES
+
+variable "esxi_user " {}
+variable "esxi_password " {}
+variable "esxi_vsphere_server " {}
 
 # You must add template in vsphere before use it
 variable "template_image" {
