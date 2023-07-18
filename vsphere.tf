@@ -54,11 +54,6 @@ data "vsphere_datastore" "datastore" {
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
-data "vsphere_resource_pool" "default" {
-  name          = format("%s%s", data.vsphere_compute_cluster.cluster.name, "/Resources")
-  datacenter_id = data.vsphere_datacenter.datacenter.id
-}
-
 data "vsphere_host" "host" {
   name          = "localhost.localdomain"
   datacenter_id = data.vsphere_datacenter.datacenter.id
