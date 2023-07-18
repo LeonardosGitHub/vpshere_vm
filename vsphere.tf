@@ -22,6 +22,11 @@ data "vsphere_network" "data_network" {
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
+data "vsphere_resource_pool" "pool" {
+  name          = "localhost.localdomain/Resources"
+  datacenter_id = data.vsphere_datacenter.datacenter.id
+}
+
 
 ## Deployment of VM from Local OVF
 resource "vsphere_virtual_machine" "vmFromLocalOvf" {
@@ -29,7 +34,7 @@ resource "vsphere_virtual_machine" "vmFromLocalOvf" {
   datacenter_id        = data.vsphere_datacenter.datacenter.id
   datastore_id         = data.vsphere_datastore.datastore.id
   host_system_id       = data.vsphere_host.host.id
-  #resource_pool_id     = data.vsphere_resource_pool.default.id
+  resource_pool_id     = data.vsphere_resource_pool.default.id
 
   wait_for_guest_net_timeout = 0
   wait_for_guest_ip_timeout  = 0
