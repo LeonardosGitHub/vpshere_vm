@@ -50,12 +50,7 @@ data "vsphere_datacenter" "datacenter" {
 }
 
 data "vsphere_datastore" "datastore" {
-  name          = "datastore-01"
-  datacenter_id = data.vsphere_datacenter.datacenter.id
-}
-
-data "vsphere_compute_cluster" "cluster" {
-  name          = "cluster-01"
+  name          = "datastore1"
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
@@ -65,14 +60,20 @@ data "vsphere_resource_pool" "default" {
 }
 
 data "vsphere_host" "host" {
-  name          = "esxi-01.example.com"
+  name          = "localhost.localdomain"
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
-data "vsphere_network" "network" {
-  name          = "172.16.11.0"
+data "vsphere_network" "mgmt_network" {
+  name          = "Lab249"
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
+
+data "vsphere_network" "data_network" {
+  name          = "Lab248"
+  datacenter_id = data.vsphere_datacenter.datacenter.id
+}
+
 
 # ## Deployment of VM from Remote OVF
 # resource "vsphere_virtual_machine" "vmFromRemoteOvf" {
