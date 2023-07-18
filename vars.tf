@@ -12,9 +12,9 @@ provider "vsphere" {
 
 #### TEMPLATES
 
-variable "esxi_user " {}
-variable "esxi_password " {}
-variable "esxi_vsphere_server " {}
+variable "esxi_user" {}
+variable "esxi_password" {}
+variable "esxi_vsphere_server" {}
 
 # You must add template in vsphere before use it
 variable "template_image" {
