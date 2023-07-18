@@ -7,11 +7,11 @@ resource "vsphere_virtual_machine" "http_vm" {
   name             = "${var.base_hostname}${count.index + 1}"
   num_cpus         = var.vm_params["vcpu"]
   memory           = var.vm_params["ram"]
-  datastore_id     = data.vsphere_datastore.datastore_http.id
-  host_system_id   = data.vsphere_host.host.id
-  resource_pool_id = data.vsphere_resource_pool.pool.id
-  guest_id         = data.vsphere_virtual_machine.template.guest_id
-  scsi_type        = data.vsphere_virtual_machine.template.scsi_type
+#   datastore_id     = data.vsphere_datastore.datastore_http.id
+#   host_system_id   = data.vsphere_host.host.id
+#   resource_pool_id = data.vsphere_resource_pool.pool.id
+#   guest_id         = data.vsphere_virtual_machine.template.guest_id
+#   scsi_type        = data.vsphere_virtual_machine.template.scsi_type
 
   # Configure network interface
   network_interface {
