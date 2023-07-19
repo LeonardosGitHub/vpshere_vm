@@ -1,3 +1,3 @@
 output "vsphereDatacenterId" {
-  value = vsphere_datacenter.datacenter.id
+  value = data.vsphere_datacenter.datacenter.id
 }
